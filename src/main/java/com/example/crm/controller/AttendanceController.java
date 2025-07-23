@@ -6,6 +6,7 @@ import com.example.crm.utility.ApiResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
@@ -70,7 +71,9 @@ public class AttendanceController {
     }
 
     // get all attendance record
+    // Access only admin
     @GetMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<ApiResponse<List<AttendanceDto>>> getAllAttendanceRecords(){
         try{
             return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse<>(
