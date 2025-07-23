@@ -49,17 +49,17 @@ public class AttendanceController {
             ));
         }catch(Exception ex){
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ApiResponse<>(
-                    "Cannot be check in" + ex.getMessage(),null
+                    "Cannot be check out" + ex.getMessage(),null
             ));
         }
     }
 
     //get own records
-    @GetMapping("/my-logs")
+    @GetMapping("/own-logs")
     public ResponseEntity<ApiResponse<List<AttendanceDto>>> getOwnAttendanceRecords(){
         try{
             return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse<>(
-                    "Checked out successfully",
+                    "Received all own logs",
                     attendanceService.getOwnAttendanceRecords(getCurrentUsername())
             ));
         }catch(Exception ex){
@@ -79,7 +79,7 @@ public class AttendanceController {
             ));
         }catch(Exception ex){
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ApiResponse<>(
-                    "Cannot received" + ex.getMessage(),null
+                    "Cannot received all logs" + ex.getMessage(),null
             ));
         }
     }
