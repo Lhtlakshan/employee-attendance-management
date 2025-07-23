@@ -9,6 +9,8 @@ import com.example.crm.service.AttendanceService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
@@ -33,11 +35,11 @@ public class AttendanceServiceImpl implements AttendanceService {
         }
 
         //check user already checked on today
-        if(attendanceRepository.existsByUserAndDate(user, new Date())) {
+        if(attendanceRepository.existsByUserAndDate(user, LocalDate.now())) {
             throw new RuntimeException("User already check in");
         }
 
-        AttendanceEntity attendance = new AttendanceEntity(user, new Date(), LocalTime.now());
+        AttendanceEntity attendance = new AttendanceEntity(user, LocalDate.now(), LocalTime.now());
         attendanceRepository.save(attendance);
         return "User checked in successfully";
     }
@@ -52,7 +54,7 @@ public class AttendanceServiceImpl implements AttendanceService {
             throw new RuntimeException("User not found");
         }
 
-        AttendanceEntity checkIn = attendanceRepository.findByUserAndDate(user, new Date());
+        AttendanceEntity checkIn = attendanceRepository.findByUserAndDate(user, LocalDate.now());
 
         //check user already checked on today and checkout time == null
         if(checkIn != null && checkIn.getCheckoutTime() == null) {

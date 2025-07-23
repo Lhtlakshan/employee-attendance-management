@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a1ec298-ff78-435d-a4c8-b50fa214ddf9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/crm/controller/AttendanceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/crm/controller/AttendanceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/crm/enums/UserRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/crm/enums/UserRole.java" afterDir="false" />
+    <list default="true" id="9a1ec298-ff78-435d-a4c8-b50fa214ddf9" name="Changes" comment="updated apis and UserRole enum">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/crm/dto/AttendanceDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/crm/dto/AttendanceDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/crm/entity/AttendanceEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/crm/entity/AttendanceEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/crm/repository/AttendanceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/crm/repository/AttendanceRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/crm/service/impl/AttendanceServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/crm/service/impl/AttendanceServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +43,7 @@
     "Maven.employee-attendance-mgt [clean,install].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/my-technical-project/employee-attendance-management",
     "onboarding.tips.debug.path": "D:/my-technical-project/employee-attendance-mgt/src/main/java/com/example/crm/Main.java",
@@ -83,6 +87,19 @@
       <option name="presentableId" value="Default" />
       <updated>1753250987577</updated>
     </task>
+    <task id="LOCAL-00001" summary="updated apis and UserRole enum">
+      <option name="closed" value="true" />
+      <created>1753283993421</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1753283993422</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="updated apis and UserRole enum" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated apis and UserRole enum" />
   </component>
 </project>

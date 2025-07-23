@@ -32,8 +32,8 @@ public class UserController {
     private final UserDetailsService userDetailsService;
     private final AuthenticationManager authenticationManager;
     private final JwtService jwtService;
-    private final ModelMapper modelMapper;
 
+    // admin cannot be register directly but this only demonstration
     @PostMapping("/register")
     public ResponseEntity<ApiResponse<UserDto>> registerUser(@RequestBody UserDto userDto){
         try{

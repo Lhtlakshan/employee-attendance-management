@@ -6,9 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Date;
 
 @Entity
 @Data
@@ -25,13 +24,13 @@ public class AttendanceEntity {
     @JoinColumn(name = "user_id", nullable = false)
     private UserEntity user;
 
-    private Date date;
+    private LocalDate date;
 
     private LocalTime checkInTime;
 
     private LocalTime checkoutTime;
 
-    public AttendanceEntity(UserEntity user, Date date, LocalTime checkInTime) {
+    public AttendanceEntity(UserEntity user, LocalDate date, LocalTime checkInTime) {
         this.date = date;
         this.checkInTime = checkInTime;
         this.user = user;
