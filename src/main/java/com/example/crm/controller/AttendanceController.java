@@ -28,7 +28,7 @@ public class AttendanceController {
 
     // check in API
     @PostMapping("/check-in")
-    public ResponseEntity<ApiResponse<String>> checkIn(){
+    public ResponseEntity<ApiResponse<AttendanceDto>> checkIn(){
         try{
             return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse<>(
                     "Check in successfully",
@@ -36,13 +36,13 @@ public class AttendanceController {
             ));
         }catch(Exception ex){
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ApiResponse<>(
-                    "Cannot be check in" + ex.getMessage(),null));
+                    "Cannot be check in " + ex.getMessage(),null));
         }
     }
 
     // Check out
     @PutMapping("/check-out")
-    public ResponseEntity<ApiResponse<String>> checkOut(){
+    public ResponseEntity<ApiResponse<AttendanceDto>> checkOut(){
         try{
             return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse<>(
                     "Checked out successfully",
@@ -50,7 +50,7 @@ public class AttendanceController {
             ));
         }catch(Exception ex){
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ApiResponse<>(
-                    "Cannot be check out" + ex.getMessage(),null
+                    "Cannot be check out " + ex.getMessage(),null
             ));
         }
     }

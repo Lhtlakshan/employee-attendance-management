@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -25,7 +24,7 @@ public class AttendanceServiceImpl implements AttendanceService {
     private final ModelMapper modelMapper;
 
     @Override
-    public String checkIn(String email) {
+    public AttendanceDto checkIn(String email) {
 
         UserEntity user = userRepository.findByEmail(email).get();
 
@@ -40,12 +39,14 @@ public class AttendanceServiceImpl implements AttendanceService {
         }
 
         AttendanceEntity attendance = new AttendanceEntity(user, LocalDate.now(), LocalTime.now());
-        attendanceRepository.save(attendance);
-        return "User checked in successfully";
+        AttendanceEntity attendance1 = attendanceRepository.save(attendance);
+        AttendanceDto attendanceDto = modelMapper.map(attendance1, AttendanceDto.class);
+        attendanceDto.setUserId(user.getUserId());
+        return attendanceDto;
     }
 
     @Override
-    public String checkOut(String email) {
+    public AttendanceDto checkOut(String email) {
 
         UserEntity user = userRepository.findByEmail(email).get();
 
@@ -59,12 +60,14 @@ public class AttendanceServiceImpl implements AttendanceService {
         //check user already checked on today and checkout time == null
         if(checkIn != null && checkIn.getCheckoutTime() == null) {
             checkIn.setCheckoutTime(LocalTime.now());
-            attendanceRepository.save(checkIn);
+            AttendanceEntity attendance1 = attendanceRepository.save(checkIn);
+            AttendanceDto attendanceDto = modelMapper.map(attendance1, AttendanceDto.class);
+            attendanceDto.setUserId(user.getUserId());
+            return attendanceDto;
         }else{
             throw new RuntimeException("User already checked out");
         }
 
-        return "User checked out successfully";
     }
 
     @Override

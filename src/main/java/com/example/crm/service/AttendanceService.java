@@ -5,8 +5,8 @@ import com.example.crm.dto.AttendanceDto;
 import java.util.List;
 
 public interface AttendanceService {
-    String checkIn(String email);
-    String checkOut(String currentUserEmail);
+    AttendanceDto checkIn(String email);
+    AttendanceDto checkOut(String currentUserEmail);
     List<AttendanceDto> getAllAttendanceRecords();
     List<AttendanceDto> getOwnAttendanceRecords(String currentUserEmail);
 }
